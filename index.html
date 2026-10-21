@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual HTML GTF</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <iframe id="view" title="Visual"
+          sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-modals"></iframe>
+
+  <button id="btnEditar" title="Editar visual">⚙</button>
+
+  <section id="editor" hidden>
+    <label class="campo">
+      Tabela(s) do Excel <small>(separe por vírgula; a 1ª vira <code>DADOS</code>)</small>
+      <input id="tabelas" placeholder="ex.: Consumo, Metas" autocomplete="off">
+    </label>
+    <label class="campo grow">
+      HTML do visual
+      <textarea id="codigo" spellcheck="false"
+        placeholder="Cole aqui o HTML. Use window.DADOS (1ª tabela) ou window.TABELAS['Nome']."></textarea>
+    </label>
+    <div class="acoes">
+      <button id="btnExemplo">Inserir exemplo</button>
+      <span id="status"></span>
+      <button id="btnCancelar">Cancelar</button>
+      <button id="btnSalvar" class="primario">Aplicar e salvar</button>
+    </div>
+  </section>
+</body>
+</html>

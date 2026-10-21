@@ -1,0 +1,89 @@
+:root {
+  --fundo: #ffffff;
+  --texto: #1f2937;
+  --borda: #d1d5db;
+  --suave: #6b7280;
+  --verde: #1a7f37;
+  --verde-escuro: #14632b;
+  --erro: #b42318;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--fundo);
+  color: var(--texto);
+  font: 13px/1.4 "Segoe UI", system-ui, sans-serif;
+}
+
+#view {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+/* engrenagem discreta, aparece ao passar o mouse (igual visual do Power BI) */
+#btnEditar {
+  position: fixed;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background: #ffffffe6;
+  cursor: pointer;
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity .15s;
+}
+body:hover #btnEditar,
+#btnEditar:focus-visible { opacity: 1; }
+
+#editor {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  background: var(--fundo);
+}
+#editor[hidden] { display: none; }
+
+.campo { display: flex; flex-direction: column; gap: 4px; font-weight: 600; }
+.campo small { font-weight: 400; color: var(--suave); }
+.grow { flex: 1; min-height: 0; }
+
+input, textarea {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  font: 12px/1.4 Consolas, "Cascadia Mono", monospace;
+  color: var(--texto);
+}
+textarea { flex: 1; min-height: 120px; resize: none; }
+input:focus, textarea:focus { outline: 2px solid var(--verde); outline-offset: -1px; }
+
+.acoes { display: flex; align-items: center; gap: 6px; }
+#status { flex: 1; color: var(--suave); font-size: 12px; }
+#status.erro { color: var(--erro); }
+
+button {
+  padding: 6px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--texto);
+  cursor: pointer;
+  font: inherit;
+}
+button:hover { background: #f3f4f6; }
+button.primario { background: var(--verde); border-color: var(--verde); color: #fff; }
+button.primario:hover { background: var(--verde-escuro); }
